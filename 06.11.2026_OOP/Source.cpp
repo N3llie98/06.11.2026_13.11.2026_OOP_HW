@@ -99,6 +99,35 @@ public:
     }
 };
 
+class Car :public Vehicle {
+    string engine;
+    bool isElectric;
+public:
+    Car() :Vehicle() {
+        wheelNumber = 4;
+        engine = "";
+        isElectric = 0;
+    }
+    Car(string _model, string _color, string _engine, int _releaseYear, double _price, double _speed, bool _isElectric, int _wheelNumber = 4) :Vehicle(_model, _color, _wheelNumber, _releaseYear, _price, _speed) {
+        wheelNumber = 4;
+        engine = _engine;
+    }
+    void init(string _model, string _color, string _engine, int _releaseYear, double _price, double _speed, bool _isElectric) {
+        wheelNumber = 2;
+        engine = _engine;
+
+        model = _model;
+        color = _color;
+        releaseYear = _releaseYear;
+        price = _price;
+        speed = _speed;
+    }
+    void print() {
+        Vehicle::print();
+        cout << "Engine: " << engine << "\nIs electric: " << isElectric << endl;
+    }
+};
+
 //scooter, bike, car, bus, truck
 
 int main()
