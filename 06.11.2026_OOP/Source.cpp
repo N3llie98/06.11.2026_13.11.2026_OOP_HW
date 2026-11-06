@@ -113,7 +113,7 @@ public:
         engine = _engine;
     }
     void init(string _model, string _color, string _engine, int _releaseYear, double _price, double _speed, bool _isElectric) {
-        wheelNumber = 2;
+        wheelNumber = 4;
         engine = _engine;
 
         model = _model;
@@ -137,15 +137,14 @@ public:
         seats = 0;
     }
     Bus(string _model, string _color, string _engine, int _wheelNumber, int _releaseYear, int _seats, double _price, double _speed) :Vehicle(_model, _color, _wheelNumber, _releaseYear, _price, _speed) {
-        wheelNumber = _wheelNumber;
         engine = _engine;
         seats = _seats;
     }
     void init(string _model, string _color, string _engine, int _wheelNumber, int _releaseYear, int _seats, double _price, double _speed) {
-        wheelNumber = _wheelNumber;
         engine = _engine;
         seats = _seats;
 
+        wheelNumber = _wheelNumber;
         model = _model;
         color = _color;
         releaseYear = _releaseYear;
@@ -158,7 +157,34 @@ public:
     }
 };
 
-//scooter, bike, car, bus, truck
+class Truck :public Vehicle {
+    string engine;
+    double maxWeight;
+public:
+    Truck() :Vehicle() {
+        engine = "";
+        maxWeight = 0;
+    }
+    Truck(string _model, string _color, string _engine, int _wheelNumber, int _releaseYear, double _price, double _speed, double _maxWeight) :Vehicle(_model, _color, _wheelNumber, _releaseYear, _price, _speed) {
+        engine = _engine;
+        maxWeight = _maxWeight;
+    }
+    void init(string _model, string _color, string _engine, int _wheelNumber, int _releaseYear, double _price, double _speed, double _maxWeight) {
+        engine = _engine;
+        maxWeight = _maxWeight;
+
+        wheelNumber = _wheelNumber;
+        model = _model;
+        color = _color;
+        releaseYear = _releaseYear;
+        price = _price;
+        speed = _speed;
+    }
+    void print() {
+        Vehicle::print();
+        cout << "Engine: " << engine << "\nMax weight: " << maxWeight << endl;
+    }
+};
 
 int main()
 {
