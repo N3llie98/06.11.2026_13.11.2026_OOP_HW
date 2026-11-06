@@ -128,6 +128,36 @@ public:
     }
 };
 
+class Bus :public Vehicle {
+    string engine;
+    int seats;
+public:
+    Bus() :Vehicle() {
+        engine = "";
+        seats = 0;
+    }
+    Bus(string _model, string _color, string _engine, int _wheelNumber, int _releaseYear, int _seats, double _price, double _speed) :Vehicle(_model, _color, _wheelNumber, _releaseYear, _price, _speed) {
+        wheelNumber = _wheelNumber;
+        engine = _engine;
+        seats = _seats;
+    }
+    void init(string _model, string _color, string _engine, int _wheelNumber, int _releaseYear, int _seats, double _price, double _speed) {
+        wheelNumber = _wheelNumber;
+        engine = _engine;
+        seats = _seats;
+
+        model = _model;
+        color = _color;
+        releaseYear = _releaseYear;
+        price = _price;
+        speed = _speed;
+    }
+    void print() {
+        Vehicle::print();
+        cout << "Engine: " << engine << "\nNumber of seats: " << seats << endl;
+    }
+};
+
 //scooter, bike, car, bus, truck
 
 int main()
