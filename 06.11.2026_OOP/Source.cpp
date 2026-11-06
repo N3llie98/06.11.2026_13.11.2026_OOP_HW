@@ -111,10 +111,12 @@ public:
     Car(string _model, string _color, string _engine, int _releaseYear, double _price, double _speed, bool _isElectric, int _wheelNumber = 4) :Vehicle(_model, _color, _wheelNumber, _releaseYear, _price, _speed) {
         wheelNumber = 4;
         engine = _engine;
+        isElectric = _isElectric;
     }
     void init(string _model, string _color, string _engine, int _releaseYear, double _price, double _speed, bool _isElectric) {
         wheelNumber = 4;
         engine = _engine;
+        isElectric = _isElectric;
 
         model = _model;
         color = _color;
@@ -188,6 +190,46 @@ public:
 
 int main()
 {
-    
+    Vehicle obj1;
+    obj1.print();
+    cout << endl;
+    obj1.init("MODEL", "COLOR", 10, 2026, 99999, 100);
+    obj1.print();
+    cout << endl << "----------" << endl << endl;
+
+    Scooter s;
+    s.print();
+    cout << endl;
+    s.init("MODEL", "COLOR", "ENGINE", 2026, 99999, 100);
+    s.print();
+    cout << endl << "----------" << endl << endl;
+
+    Bike b;
+    b.print();
+    cout << endl;
+    b.init("MODEL", "COLOR", 2026, 99999, 100, 1, 1);
+    b.print();
+    cout << endl << "----------" << endl << endl;
+
+    Car c;
+    c.print();
+    cout << endl;
+    c.init("MODEL", "COLOR", "ENGINE", 2026, 99999, 100, 1);
+    c.print();
+    cout << endl << "----------" << endl << endl;
+
+    Bus b2;
+    b2.print();
+    cout << endl;
+    b2.init("MODEL", "COLOR", "ENGINE", 6, 2026, 50, 99999, 100);
+    b2.print();
+    cout << endl << "----------" << endl << endl;
+
+    Truck t;
+    t.print();
+    cout << endl;
+    t.init("MODEL", "COLOR", "ENGINE", 8, 2026, 99999, 100, 5000);
+    t.print();
+    cout << endl << "----------" << endl << endl;
     return 0;
 }
