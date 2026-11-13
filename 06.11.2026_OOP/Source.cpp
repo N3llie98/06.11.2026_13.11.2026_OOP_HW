@@ -27,7 +27,7 @@ public:
         price = _price;
         speed = _speed;
     }
-    void init(string _model, string _color, int _wheelNumber, int _releaseYear, double _price, double _speed) {
+    virtual void init(string _model, string _color, int _wheelNumber, int _releaseYear, double _price, double _speed) {
         model = _model;
         color = _color;
         wheelNumber = _wheelNumber;
@@ -35,7 +35,7 @@ public:
         price = _price;
         speed = _speed;
     }
-    void print() {
+    virtual void print() {
         cout << "Model: " << model << "\nColor: " << color << "\nNumber of wheels: " << wheelNumber
             << "\nRelease year: " << releaseYear << "\nPrice: " << price << "\nSpeed: " << speed << endl;
     }
@@ -190,46 +190,34 @@ public:
 
 int main()
 {
-    Vehicle obj1;
-    obj1.print();
-    cout << endl;
-    obj1.init("MODEL", "COLOR", 10, 2026, 99999, 100);
-    obj1.print();
-    cout << endl << "----------" << endl << endl;
+    Vehicle* obj = nullptr;
 
-    Scooter s;
-    s.print();
-    cout << endl;
-    s.init("MODEL", "COLOR", "ENGINE", 2026, 99999, 100);
-    s.print();
-    cout << endl << "----------" << endl << endl;
+	cout << "Choose a vehicle type:\n1. Scooter\n2. Bike\n3. Car\n4. Bus\n5. Truck\n";
+    int choice;
+	cin >> choice;
 
-    Bike b;
-    b.print();
-    cout << endl;
-    b.init("MODEL", "COLOR", 2026, 99999, 100, 1, 1);
-    b.print();
-    cout << endl << "----------" << endl << endl;
-
-    Car c;
-    c.print();
-    cout << endl;
-    c.init("MODEL", "COLOR", "ENGINE", 2026, 99999, 100, 1);
-    c.print();
-    cout << endl << "----------" << endl << endl;
-
-    Bus b2;
-    b2.print();
-    cout << endl;
-    b2.init("MODEL", "COLOR", "ENGINE", 6, 2026, 50, 99999, 100);
-    b2.print();
-    cout << endl << "----------" << endl << endl;
-
-    Truck t;
-    t.print();
-    cout << endl;
-    t.init("MODEL", "COLOR", "ENGINE", 8, 2026, 99999, 100, 5000);
-    t.print();
-    cout << endl << "----------" << endl << endl;
+    switch (choice) {
+	case 1:
+		obj = new Scooter("Vespa", "Red", "Gasoline", 2020, 3000, 60);
+        obj->print();
+		break;
+	case 2:
+		obj = new Bike("Giant", "Blue", 2021, 500, 25, true, true);
+        obj->print();
+        break;
+    case 3:
+		obj = new Car("Tesla Model 3", "White", "Electric", 2022, 40000, 150, true);
+        obj->print();
+        break;
+    case 4:
+		obj = new Bus("Mercedes-Benz", "Yellow", "Diesel", 6, 2019, 50, 80000, 100);
+        obj->print();
+        break;
+    case 5:
+		obj = new Truck("Ford F-150", "Black", "Gasoline", 4, 2021, 30000, 120, 1000);
+        obj->print();
+        break;
+    }
+    
     return 0;
 }
